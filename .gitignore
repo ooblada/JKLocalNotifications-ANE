@@ -2,9 +2,7 @@
 /src/FlashBuilder/.settings/
 /src/FlashBuilder/.settings/org.eclipse.core.resources.prefs
 /src/XCode/LocalNotificationLib/LocalNotificationLib.xcodeproj/project.xcworkspace/xcuserdata/juancarlos.xcuserdatad/UserInterfaceState.xcuserstate
-
-# You can re-generate this file in XCode
-/src/XCode/LocalNotificationLib/Release/libLocalNotificationLib.a
+/src/AndroidStudio/LocalNotificationLib/.idea/
 
 xcuserdata/
 build/
