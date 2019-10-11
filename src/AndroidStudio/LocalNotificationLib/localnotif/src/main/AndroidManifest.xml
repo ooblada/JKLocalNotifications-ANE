@@ -4,8 +4,6 @@
     android:versionCode="1"
     android:versionName="1.0.5">
 
-    <uses-sdk android:targetSdkVersion="29" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

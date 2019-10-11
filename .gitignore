@@ -10,3 +10,4 @@ DerivedData/
 .DS_Store
 
 doc/
+/bin/config/config.sh.mine
