@@ -34,6 +34,9 @@ public class NotificationFactory {
         buildActions(intentFactory);
         buildDefaultAction(intentFactory);
         buildMiscellaneous();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            builder.setChannelId("com.juankpro.ane.localnotif.main_channel");
+        }
         return builder.build();
     }
 
@@ -48,15 +51,15 @@ public class NotificationFactory {
         Notification.BigTextStyle style = new Notification.BigTextStyle()
                 .bigText(body);
         builder
-                .setSmallIcon(iconResource)
-                .setContentTitle(title)
-                .setContentText(body)
-                .setTicker(tickerText)
-                .setDefaults(getDefaults())
-                .setNumber(numberAnnotation)
-                .setStyle(style)
-                .setSound(soundSettings.getSoundUri())
-                .setPriority(priority);
+        .setSmallIcon(iconResource)
+        .setContentTitle(title)
+        .setContentText(body)
+        .setTicker(tickerText)
+        .setDefaults(getDefaults())
+        .setNumber(numberAnnotation)
+        .setStyle(style)
+        .setSound(soundSettings.getSoundUri())
+        .setPriority(priority);
     }
 
     private void buildActions(PendingIntentFactory intentFactory) {
