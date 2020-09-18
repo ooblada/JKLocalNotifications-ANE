@@ -6,6 +6,8 @@ import android.content.Intent;
 import com.juankpro.ane.localnotif.util.ApplicationStatus;
 import com.juankpro.ane.localnotif.util.Logger;
 
+import java.util.Objects;
+
 /**
  * Created by Juank on 10/21/17.
  */
@@ -47,7 +49,7 @@ public class LocalNotificationIntentService extends IntentService {
     private void handleResponse(Intent intent) {
         String userResponse = intent.getStringExtra(Constants.USER_RESPONSE_KEY);
         if (userResponse == null) return;
-        new NotificationDispatcher(getApplicationContext(), intent.getExtras()).dispatch();
+        new NotificationDispatcher(getApplicationContext(), Objects.requireNonNull(intent.getExtras())).dispatch();
     }
 
     private void openActivityInBackground(Intent intent) {
@@ -60,7 +62,7 @@ public class LocalNotificationIntentService extends IntentService {
 
     private void openActivity(Intent intent, boolean backgroundMode) {
         Intent newIntent = new Intent();
-        newIntent.setClassName(getApplicationContext(), intent.getStringExtra(Constants.MAIN_ACTIVITY_CLASS_NAME_KEY));
+        newIntent.setClassName(getApplicationContext(), Objects.requireNonNull(intent.getStringExtra(Constants.MAIN_ACTIVITY_CLASS_NAME_KEY)));
         newIntent.putExtra(Constants.BACKGROUND_MODE_KEY, backgroundMode);
         newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getApplicationContext().startActivity(newIntent);

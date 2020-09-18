@@ -147,7 +147,7 @@ public class ExtensionUtils {
         try {
             FREObject byteArray = FREObject.newObject("flash.utils.ByteArray", null);
             for (byte aByte : data) {
-                FREObject arguments[] = new FREObject[] { FREObject.newObject(aByte) };
+                FREObject[] arguments = new FREObject[] { FREObject.newObject(aByte) };
                 byteArray.callMethod("writeByte", arguments);
             }
             return byteArray;

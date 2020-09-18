@@ -30,7 +30,7 @@ public class ArrayDeserializer<T extends IDeserializable> {
 
             return items;
         }
-        catch (Throwable e) { }
+        catch (Throwable ignored) { }
         return (T[])Array.newInstance(aClass, 0);
     }
 }

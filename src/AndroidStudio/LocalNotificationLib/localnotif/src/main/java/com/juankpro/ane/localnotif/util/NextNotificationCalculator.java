@@ -3,7 +3,6 @@ package com.juankpro.ane.localnotif.util;
 import com.juankpro.ane.localnotif.LocalNotification;
 import com.juankpro.ane.localnotif.LocalNotificationTimeInterval;
 
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;

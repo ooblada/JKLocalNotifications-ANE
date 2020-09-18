@@ -55,7 +55,7 @@ public class LocalNotification implements ISerializable, IDeserializable {
 
     public  boolean showInForeground = false;
 
-    public String activityClassName = "";
+    public String activityClassName;
     public String category = "";
 
     @SuppressWarnings("WeakerAccess")

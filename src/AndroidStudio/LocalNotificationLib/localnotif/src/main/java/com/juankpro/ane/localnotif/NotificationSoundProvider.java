@@ -66,7 +66,7 @@ public class NotificationSoundProvider extends ContentProvider {
     @Override
     public AssetFileDescriptor openAssetFile(Uri uri, String mode) throws FileNotFoundException {
         String lastPathSegment = uri.getLastPathSegment();
-        if (!lastPathSegment.endsWith(".wav") && !lastPathSegment.endsWith(".mp3")) {
+        if (lastPathSegment == null || !lastPathSegment.endsWith(".wav") && !lastPathSegment.endsWith(".mp3")) {
             return null;
         }
         return new AssetDecompressor(getContext()).decompress(uri.getLastPathSegment());

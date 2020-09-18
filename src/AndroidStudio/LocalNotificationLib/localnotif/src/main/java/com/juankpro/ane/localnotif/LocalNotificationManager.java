@@ -35,7 +35,7 @@ class LocalNotificationManager {
             String chanID = "com.juankpro.ane.localnotif.main_channel";
             String chanTitle = "main_channel";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel chan = notificationManager.getNotificationChannel(chanID);
+            NotificationChannel chan = notificationManager != null ? notificationManager.getNotificationChannel(chanID) : null;
             if(chan == null) {
                 chan = new NotificationChannel(chanID, chanTitle, importance);
                 notificationManager.createNotificationChannel(chan);

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 /**
  * Created by juancarlospazmino on 12/14/17.
@@ -33,7 +34,7 @@ public class AssetDecompressor {
 
             if (cacheFile.exists()) return getFd(cacheFile);
 
-            cacheFile.getParentFile().mkdirs();
+            Objects.requireNonNull(cacheFile.getParentFile()).mkdirs();
             copyToCacheFile(soundName, cacheFile);
             return getFd(cacheFile);
         }

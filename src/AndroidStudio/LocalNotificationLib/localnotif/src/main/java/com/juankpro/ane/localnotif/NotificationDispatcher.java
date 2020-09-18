@@ -31,11 +31,15 @@ class NotificationDispatcher {
         NotificationManager notificationManager = (NotificationManager)context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         assert notificationManager != null;
-
-        notificationManager.notify(
-                code,
-                Constants.STANDARD_NOTIFICATION_ID,
-                getNotification());
+        try {
+            notificationManager.notify(
+                    code,
+                    Constants.STANDARD_NOTIFICATION_ID,
+                    getNotification());
+        }
+        catch (IllegalStateException | IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
     private Notification getNotification() {

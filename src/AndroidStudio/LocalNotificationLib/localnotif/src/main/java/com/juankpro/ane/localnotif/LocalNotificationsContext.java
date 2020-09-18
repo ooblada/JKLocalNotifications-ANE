@@ -187,12 +187,22 @@ public class LocalNotificationsContext extends FREContext {
     }
 
     private void dispatchSettingsSubscribed() {
-        dispatchStatusEventAsync(SETTINGS_SUBSCRIBED, STATUS);
+        try {
+            dispatchStatusEventAsync(SETTINGS_SUBSCRIBED, STATUS);
+        }
+        catch (IllegalStateException | IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
     void dispatchNotificationSelectedEvent() {
         LocalNotificationCache.getInstance().reset();
-        dispatchStatusEventAsync(NOTIFICATION_SELECTED, STATUS);
+        try {
+            dispatchStatusEventAsync(NOTIFICATION_SELECTED, STATUS);
+        }
+        catch (IllegalStateException | IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
     private FREObject getSelectedSettings() throws Exception {
